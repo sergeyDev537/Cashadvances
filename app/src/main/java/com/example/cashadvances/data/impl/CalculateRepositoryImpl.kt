@@ -6,16 +6,18 @@ import com.example.cashadvances.domain.repositories.CalculateRepository
 object CalculateRepositoryImpl : CalculateRepository {
 
     override fun getCalculatePercent(
-        loanAmount: String,
-        loanTerm: String,
-        interestRate: String
+        loanAmount: Int,
+        loanTerm: Int,
+        interestRate: Int
     ): CalculatePercent {
-        val loanAmountInt: Int = loanAmount.toInt()
-        val loanTermInt: Int = loanTerm.toInt()
-        val interestRateInt: Int = interestRate.toInt()
-        val totalInterestLoanCalc = loanAmountInt * interestRateInt / 100 / 31 * loanTermInt
-        val totalPaymentsLoanCalc = loanAmountInt + totalInterestLoanCalc
-        val paymentEveryMonthLoanCalc = totalPaymentsLoanCalc / loanTermInt
+        val totalInterestLoanCalc = loanAmount * interestRate / 100 / 31 * loanTerm
+        val totalPaymentsLoanCalc = loanAmount + totalInterestLoanCalc
+        val paymentEveryMonthLoanCalc = if (loanTerm == 0){
+            totalPaymentsLoanCalc / 1
+        }
+        else{
+            totalPaymentsLoanCalc / loanTerm
+        }
         return CalculatePercent(
             paymentEveryMonthLoanCalc, totalPaymentsLoanCalc, totalInterestLoanCalc
         )
