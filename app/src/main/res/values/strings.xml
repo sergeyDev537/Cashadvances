@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Cashadvances</string>
+
+    <!--LANGUAGE-->
+    <string name="language">Language</string>
+    <string name="choose_language">Choose language:</string>
+
+    <string name="english">English</string>
+    <string name="russian">Russian</string>
+    <string name="spanish">Spanish</string>
+
+    <string name="ru" translatable="false">RU</string>
+
+    <string name="gb" translatable="false">US</string>
+    <string name="sp" translatable="false">ES</string>
+
 </resources>

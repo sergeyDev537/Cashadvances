@@ -5,7 +5,7 @@ import com.example.cashadvances.domain.repositories.PaydayLoansRepository
 
 class GetQuestionAnswerListUseCase(private val paydayLoansRepository: PaydayLoansRepository) {
 
-    operator fun invoke(): List<QuestionAnswerItem> {
+    suspend operator fun invoke(): List<QuestionAnswerItem> {
         return paydayLoansRepository.getQuestionAnswerList()
     }
 

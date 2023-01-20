@@ -8,7 +8,7 @@ interface PaydayLoansRepository {
 
     fun getInstallmentLoans(): String
 
-    fun getQuestionAnswerList(): List<QuestionAnswerItem>
+    suspend fun getQuestionAnswerList(): List<QuestionAnswerItem>
 
     fun getUrlLegality(): String
 
