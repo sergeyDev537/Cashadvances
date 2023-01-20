@@ -4,6 +4,10 @@ import com.example.cashadvances.domain.entities.CalculatePercent
 
 interface CalculateRepository {
 
-    fun getCalculatePercent(): CalculatePercent
+    fun getCalculatePercent(
+        loanAmount: String,
+        loanTerm: String,
+        interestRate: String
+    ): CalculatePercent
 
 }
