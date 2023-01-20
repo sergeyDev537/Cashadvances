@@ -6,9 +6,9 @@ import com.example.cashadvances.domain.repositories.CalculateRepository
 class GetCalculatePercentUseCase(private val calculateRepository: CalculateRepository) {
 
     operator fun invoke(
-        loanAmount: String,
-        loanTerm: String,
-        interestRate: String
+        loanAmount: Int,
+        loanTerm: Int,
+        interestRate: Int
     ): CalculatePercent{
         return calculateRepository.getCalculatePercent(loanAmount, loanTerm, interestRate)
     }
