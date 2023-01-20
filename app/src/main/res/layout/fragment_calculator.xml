@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="calculateItem"
+            type="com.example.cashadvances.domain.entities.CalculatePercent" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragments.LoanCalculatorFragment">
+
+        <TextView
+            android:id="@+id/text_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/description_calculator"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_edit_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/viewLoans"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_description"
+            app:layout_constraintVertical_bias="0.0">
+
+            <TextView
+                android:id="@+id/text_loan_amount_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/loan_amount"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/guidelineLoans2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_loan_term_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/loan_term"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/guidelineLoans2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_loan_amount_label" />
+
+            <TextView
+                android:id="@+id/text_interest_rate_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="32dp"
+                android:text="@string/interest_rate"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guidelineLoans2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_loan_term_label"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineLoans2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <EditText
+                android:id="@+id/edit_text_loan_amount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:hint="@string/_0"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:maxLength="9"
+                android:minHeight="48dp"
+                app:layout_constraintBottom_toBottomOf="@+id/text_loan_amount_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guidelineLoans2"
+                app:layout_constraintTop_toTopOf="@+id/text_loan_amount_label" />
+
+            <EditText
+                android:id="@+id/edit_text_loan_term"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:hint="@string/_0"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:maxLength="9"
+                android:minHeight="48dp"
+                app:layout_constraintBottom_toBottomOf="@+id/text_loan_term_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guidelineLoans2"
+                app:layout_constraintTop_toTopOf="@+id/text_loan_term_label" />
+
+            <EditText
+                android:id="@+id/edit_text_interest_rate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:hint="@string/percent_0"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:maxLength="9"
+                android:minHeight="48dp"
+                app:layout_constraintBottom_toBottomOf="@+id/text_interest_rate_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guidelineLoans2"
+                app:layout_constraintTop_toTopOf="@+id/text_interest_rate_label" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/viewLoans"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/container_edit_data" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewLoans">
+
+            <TextView
+                android:id="@+id/text_payment_every_month_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/payment_every_month"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/guidelineLoans3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_total_payments_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/total_payments"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/guidelineLoans3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_payment_every_month_label" />
+
+            <TextView
+                android:id="@+id/text_total_interest_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="32dp"
+                android:text="@string/total_interest"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guidelineLoans3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_total_payments_label"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineLoans3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <TextView
+                android:id="@+id/text_payment_every_month"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@{String.valueOf(calculateItem.paymentEveryMonth)}"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/text_payment_every_month_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guidelineLoans3"
+                app:layout_constraintTop_toTopOf="@+id/text_payment_every_month_label" />
+
+            <TextView
+                android:id="@+id/text_total_payments"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@{String.valueOf(calculateItem.totalPayments)}"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/text_total_payments_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guidelineLoans3"
+                app:layout_constraintTop_toTopOf="@+id/text_total_payments_label" />
+
+            <TextView
+                android:id="@+id/text_total_interest"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@{String.valueOf(calculateItem.totalInterest)}"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/text_total_interest_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guidelineLoans3"
+                app:layout_constraintTop_toTopOf="@+id/text_total_interest_label" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

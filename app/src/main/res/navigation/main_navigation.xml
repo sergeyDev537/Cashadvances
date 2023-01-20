@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/menuFragment">
+
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.cashadvances.presentation.fragments.MenuFragment"
+        android:label="MenuFragment"
+        tools:layout="@layout/fragment_menu">
+        <action
+            android:id="@+id/action_menuFragment_to_calculatorFragment"
+            app:destination="@id/calculatorFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_aboutPaydayFragment"
+            app:destination="@id/aboutPaydayFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/calculatorFragment"
+        android:name="com.example.cashadvances.presentation.fragments.CalculatorFragment"
+        android:label="CalculatorFragment"
+        tools:layout="@layout/fragment_calculator" />
+    <fragment
+        android:id="@+id/aboutPaydayFragment"
+        android:name="com.example.cashadvances.presentation.fragments.AboutPaydayFragment"
+        android:label="AboutPaydayFragment"
+        tools:layout="@layout/fragment_about_payday">
+        <action
+            android:id="@+id/action_aboutPaydayFragment_to_aboutPaydayItemFragment2"
+            app:destination="@id/aboutPaydayItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutPaydayItemFragment"
+        android:name="com.example.cashadvances.presentation.fragments.AboutPaydayItemFragment"
+        android:label="AboutPaydayItemFragment"
+        tools:layout="@layout/fragment_about_payday_item">
+        <argument
+            android:name="nameQuestion"
+            app:argType="string" />
+    </fragment>
+</navigation>
